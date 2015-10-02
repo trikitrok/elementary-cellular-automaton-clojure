@@ -6,7 +6,7 @@
 (defn- cell-neighbors [cells]
   (partition 3 1 (pad cells)))
 
-(defn next-generation [cells rule]
+(defn- next-generation [cells rule]
   (map rule (cell-neighbors cells)))
 
 (defn evolve [rule initial-cells num-generations]
