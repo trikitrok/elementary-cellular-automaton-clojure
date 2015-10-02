@@ -23,7 +23,8 @@
 (defn- render-ones [line]
   (string/replace line #"1" "x"))
 
-(defn- render-generation [num-generations generation-number generation]
+(defn- render-generation
+  [num-generations generation-number generation]
   (->> generation
        (apply str)
        (render-ones)
@@ -31,7 +32,8 @@
        (center num-generations generation-number)))
 
 (defn evolve [rule initial-cells num-generations]
-  (take num-generations (iterate #(next-generation % rule) initial-cells)))
+  (take num-generations
+        (iterate #(next-generation % rule) initial-cells)))
 
 (defn render [rule initial-cells num-generations]
   (->> (evolve rule initial-cells num-generations)
