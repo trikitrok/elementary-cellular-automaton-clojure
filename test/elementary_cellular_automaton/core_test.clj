@@ -23,6 +23,6 @@
 
   (fact
     "can be rendered as text"
-    (render rule-30 [1] 1) => "x"
-    (render rule-30 [1] 2) => " x\nxxx"
-    (render rule-30 [1] 4) => "   x\n  xxx\n xx  x\nxx xxxx"))
+    (render rule-30 [1] 1) => ["x"]
+    (render rule-30 [1] 2) => [" x" "xxx"]
+    (render rule-30 [1] 4) => ["   x" "  xxx" " xx  x" "xx xxxx"]))
