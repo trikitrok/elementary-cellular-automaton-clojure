@@ -10,4 +10,5 @@
   (map rule (cell-neighbors cells)))
 
 (defn evolve [rule initial-cells num-generations]
-  [[1] [1 1 1]])
+  (take (inc num-generations)
+        (iterate #(next-generation % rule) initial-cells)))
