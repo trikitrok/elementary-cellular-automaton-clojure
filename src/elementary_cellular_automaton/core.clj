@@ -1,4 +1,5 @@
-(ns elementary-cellular-automaton.core)
+(ns elementary-cellular-automaton.core
+  (:require [clojure.string :as string]))
 
 (defn- pad [cells]
   (concat [0 0] cells [0 0]))
@@ -30,7 +31,6 @@
   (take num-generations (iterate #(next-generation % rule) initial-cells)))
 
 (defn render [rule initial-cells num-generations]
-  (let [generations (evolve rule initial-cells num-generations)]
-    (clojure.string/join
-      "\n"
-      (map-indexed #(render-generation num-generations %1 %2) generations))))
+  (->> (evolve rule initial-cells num-generations)
+       (map-indexed #(render-generation num-generations %1 %2))
+       (string/join "\n")))
