@@ -15,7 +15,9 @@
 
 (defn- render-generation [num-generations generation-number generation]
   (pad-line num-generations generation-number
-            (clojure.string/replace (apply str generation) #"1" "x")))
+            (clojure.string/replace
+              (clojure.string/replace (apply str generation) #"1" "x")
+              #"0" " ")))
 
 (defn evolve [rule initial-cells num-generations]
   (take num-generations (iterate #(next-generation % rule) initial-cells)))
