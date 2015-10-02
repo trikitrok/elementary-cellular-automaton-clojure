@@ -12,3 +12,7 @@
 (defn evolve [rule initial-cells num-generations]
   (take (inc num-generations)
         (iterate #(next-generation % rule) initial-cells)))
+
+(defn render [rule initial-cells num-generations]
+  "x")
+
