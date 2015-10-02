@@ -10,15 +10,18 @@
 (defn- next-generation [cells rule]
   (map rule (cell-neighbors cells)))
 
+(defn- spaces [num-generations generation-number]
+  (let [num-spaces (- num-generations (inc generation-number))]
+    (apply str (repeat num-spaces \space))))
+
 (defn- center [num-generations generation-number line]
-  (str (apply str (repeat (- num-generations (inc generation-number)) \space))
-       line))
+  (str (spaces num-generations generation-number) line))
 
 (defn- render-zeros [line]
-  (clojure.string/replace line #"0" " "))
+  (string/replace line #"0" " "))
 
 (defn- render-ones [line]
-  (clojure.string/replace line #"1" "x"))
+  (string/replace line #"1" "x"))
 
 (defn- render-generation [num-generations generation-number generation]
   (->> generation
