@@ -36,4 +36,4 @@
 (defn render [rule initial-cells num-generations]
   (->> (evolve rule initial-cells num-generations)
        (map-indexed #(render-generation num-generations %1 %2))
-       (string/join "\n")))
+       (string/join \newline)))
