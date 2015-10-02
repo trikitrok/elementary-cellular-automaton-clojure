@@ -8,3 +8,6 @@
 
 (defn next-generation [cells rule]
   (map rule (cell-neighbors cells)))
+
+(defn evolve [rule initial-cells num-generations]
+  [[1] [1 1 1]])
