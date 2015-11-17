@@ -9,6 +9,6 @@
 (defn- next-generation [cells rule]
   (map rule (cell-neighbors cells)))
 
-(defn evolve [rule initial-cells num-generations]
+(defn generations [rule initial-cells num-generations]
   (take num-generations
         (iterate #(next-generation % rule) initial-cells)))

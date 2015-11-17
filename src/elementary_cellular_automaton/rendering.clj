@@ -1,6 +1,6 @@
 (ns elementary-cellular-automaton.rendering
   (:require [clojure.string :as string]
-            [elementary-cellular-automaton.evolution :refer [evolve]]))
+            [elementary-cellular-automaton.evolution :refer [generations]]))
 
 (defn- spaces [num-generations generation-number]
   (let [num-spaces (- num-generations (inc generation-number))]

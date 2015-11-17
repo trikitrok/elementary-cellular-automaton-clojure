@@ -9,9 +9,8 @@
   (fact
     "evolves for several generations following a given rule
     and some initial cells"
-    (evolve rules/rule-30 [1] 1) => [[1]]
-    (evolve rules/rule-30 [1] 2) => [[1] [1 1 1]]
-    (evolve rules/rule-30 [1] 3) => [[1] [1 1 1] [1 1 0 0 1]]
-    (evolve
+    (generations rules/rule-30 [1] 1) => [[1]]
+    (generations rules/rule-30 [1] 2) => [[1] [1 1 1]]
+    (generations rules/rule-30 [1] 3) => [[1] [1 1 1] [1 1 0 0 1]]
+    (generations
       rules/rule-30 [1] 4) => [[1] [1 1 1] [1 1 0 0 1] [1 1 0 1 1 1 1]]))
-
